@@ -1,0 +1,63 @@
+{
+  "name": "davibe",
+  "version": "1.0.1",
+  "main": "main.js",
+  "productName": "Davibe",
+  "description": "Description de votre application Davibe.",
+  "author": "Votre Nom <votre.email@example.com>",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "publish": "electron-builder -p always"
+  },
+  "build": {
+    "appId": "com.davibe.app",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "davinci-klod",
+        "repo": "davibe-desktop"
+      }
+    ],
+    "productName": "Davibe",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "renderer.js",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/img/favicon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "icon": "assets/img/favicon.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "linux": {
+      "icon": "assets/img",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
+  },
+  "devDependencies": {
+    "electron": "^25.9.8",
+    "electron-builder": "^23.6.0",
+    "electron-updater": "^6.2.1"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "electron-updater": "^6.2.1"
+  }
+}
